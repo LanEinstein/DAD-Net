@@ -1,0 +1,82 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "dad-net"
+version = "1.0.0"
+description = "DAD-Net: Distribution-Aligned Dual-Stream Framework for Cross-Domain Micro-Expression Recognition"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.8"
+authors = [
+    {name = "Lan Zhang"},
+    {name = "Xianye Ben"},
+]
+keywords = [
+    "micro-expression recognition",
+    "deep learning",
+    "optical flow",
+    "cross-domain learning",
+    "affective computing",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Scientific/Engineering :: Image Recognition",
+]
+dependencies = [
+    "torch>=1.12.0",
+    "torchvision>=0.13.0",
+    "numpy>=1.21.0",
+    "tqdm>=4.62.0",
+]
+
+[project.optional-dependencies]
+full = [
+    "pandas>=1.3.0",
+    "scikit-learn>=1.0.0",
+    "opencv-python>=4.5.0",
+    "opencv-contrib-python>=4.5.0",
+    "matplotlib>=3.5.0",
+    "seaborn>=0.11.0",
+    "adabelief-pytorch>=0.2.1",
+    "dlib>=19.22.0",
+]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-cov>=3.0.0",
+    "black>=22.0.0",
+    "isort>=5.10.0",
+    "flake8>=4.0.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/your-repo/DAD-Net"
+Documentation = "https://github.com/your-repo/DAD-Net#readme"
+Repository = "https://github.com/your-repo/DAD-Net"
+
+[project.scripts]
+dad-net-train = "train:main"
+dad-net-infer = "inference:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["models*", "losses*", "data*", "utils*", "configs*"]
+
+[tool.black]
+line-length = 100
+target-version = ["py38", "py39", "py310", "py311"]
+
+[tool.isort]
+profile = "black"
+line_length = 100
